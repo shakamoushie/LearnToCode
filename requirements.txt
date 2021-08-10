@@ -75,7 +75,6 @@ pyparsing
 pyrsistent
 python-dateutil
 python-utils
-pytz
 pywin32
 pywin32-ctypes
 pywinpty
