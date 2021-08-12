@@ -4,7 +4,7 @@ import pandas as pd
 import altair as alt
 from st_aggrid import AgGrid
 
-st.set_page_config(page_title = "SIRO Vista", page_icon="./Sirologo.ico", layout = "wide", initial_sidebar_state = "expanded")
+st.set_page_config(page_title = "Test App", layout = "wide", initial_sidebar_state = "expanded")
 
 # dataframe settings
 pd.set_option("display.max_columns", None)
@@ -13,7 +13,7 @@ pd.set_option('display.max_colwidth', None)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 caching.clear_cache()
-df = (pd.read_excel(("./" + "vtmp.xlsx"), "wsdta"))
+df = (pd.read_excel(("vtmp.xlsx"), "wsdta"))
 
 sidlst = df["SCNID"].values.tolist()
 sidlst = list(set(sidlst))    # rmv dupes
