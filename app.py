@@ -13,7 +13,7 @@ pd.set_option('display.max_colwidth', None)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 caching.clear_cache()
-df = (pd.read_excel(("vtmp.xlsx"), "wsdta"))
+df = (pd.read_excel(("./vtmp.xlsx"), "wsdta"))
 
 sidlst = df["SCNID"].values.tolist()
 sidlst = list(set(sidlst))    # rmv dupes
