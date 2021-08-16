@@ -15,18 +15,18 @@ pd.set_option('display.max_colwidth', None)
 caching.clear_cache()
 df = (pd.read_excel(("./vtmp.xlsx"), "wsdta"))
 
-sidlst = df["SCNID"].values.tolist()
+sidlst = df["Region"].values.tolist()
 sidlst = list(set(sidlst))    # rmv dupes
 sidlst = [item for item in sidlst if not(pd.isnull(item)) == True]   # rmv NaN from a list
 sidlst.sort()
 sidlst.insert(0, "")     # insert blank entry to the top of the list
 
-tmpsid = st.selectbox("Choose a Subject ID: ", sidlst, index=0)
+tmpsid = st.selectbox("Choose a Region ID: ", sidlst, index=0)
 if tmpsid != "":
-    AgGrid(df[(df["SCNID"] == tmpsid)])
+    AgGrid(df[(df["Region"] == tmpsid)])
 
-    cht1 = alt.Chart(df[(df["SCNID"] == tmpsid)])
+    cht1 = alt.Chart(df[(df["Region"] == tmpsid)])
     cht1 = cht1.mark_line(color = "blue", point = True)
-    cht1 = cht1.encode(alt.X("VISIT", title = "Visit"), alt.Y("SCORE", title = "Visit Value"))
-    cht1 = cht1.properties(width = 800, height = 300, title = "Reading per Visit")
+    cht1 = cht1.encode(alt.X("Vaccine", title = "Vaccine"), alt.Y("Units", title = "Vaccine Value"))
+    cht1 = cht1.properties(width = 800, height = 300, title = "Reading per Vaccine")
     st.write(cht1)
